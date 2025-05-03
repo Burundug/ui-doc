@@ -3,11 +3,11 @@ const path = require('path');
 require('laravel-mix-jigsaw');
 
 mix.disableSuccessNotifications();
-mix.setPublicPath('source/assets/build'); // или просто 'build' если хочешь стандартную структуру
+mix.setPublicPath('source/assets/build');
 mix.copy('source/_core/_assets/img', 'source/assets/build/img');
 mix.jigsaw()
     .js('source/_core/_assets/js/main.js', 'js')
-    .css('source/_core/_assets/css/main.css', 'css', [ // изменил путь с build/css на css
+    .css('source/_core/_assets/css/main.css', 'css', [
         require('postcss-import'),
         require('tailwindcss/nesting'),
         require('tailwindcss'),
