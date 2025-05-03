@@ -1,33 +1,35 @@
 <?php
 
-use Illuminate\Support\Str;
+    use Illuminate\Support\Str;
 
-return [
-    'baseUrl' => '',
-    'production' => false,
-    'siteName' => 'Simai Documentation',
-    'siteDescription' => 'Simai framework documentation',
+    return [
+        'baseUrl' => '',
+        'production' => false,
+        'siteName' => 'Simai Documentation',
+        'siteDescription' => 'Simai framework documentation',
 
-    // Algolia DocSearch credentials
-    'docsearchApiKey' => env('DOCSEARCH_KEY'),
-    'docsearchIndexName' => env('DOCSEARCH_INDEX'),
+        'docsearchApiKey' => env('DOCSEARCH_KEY'),
+        'docsearchIndexName' => env('DOCSEARCH_INDEX'),
+        'locales' => [
+            'en' => 'English',
+            'ru' => 'Русский',
+        ],
+        'defaultLocale' => 'ru',
+        'lang_path' => 'source/lang',
+        'collections' => require_once('source/_template/collections.php'),
+        'isActive' => function ($page, $path) {
+            return Str::endsWith(trimPath($page->getPath()), trimPath($path));
+        },
+        'isActiveParent' => function ($page, $slug) {
+            $path = trim(trimPath($page->getPath()), '/');
 
-    // navigation menu
-    'navigation' => require_once('navigation.php'),
-    'docs' => base_path('source/docs'),
+            $segments = explode('/', $path);
+            array_shift($segments);
 
-    // helpers
-    'isActive' => function ($page, $path) {
-        return Str::endsWith(trimPath($page->getPath()), trimPath($path));
-    },
-    'isActiveParent' => function ($page, $menuItem) {
-        if (is_object($menuItem) && $menuItem->children) {
-            return $menuItem->children->contains(function ($child) use ($page) {
-                return trimPath($page->getPath()) == trimPath($child);
-            });
-        }
-    },
-    'url' => function ($page, $path) {
-        return Str::startsWith($path, 'http') ? $path : '/' . trimPath($path);
-    },
-];
+
+            return in_array($slug, $segments);
+        },
+        'url' => function ($page, $path) {
+            return Str::startsWith($path, 'http') ? $path : '/' . trimPath($path);
+        },
+    ];
