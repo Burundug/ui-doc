@@ -9,7 +9,7 @@
         $collections["docs-$lang"] = [
             'directory' => basename($dir),
             'language' => $lang,
-            'extends' => '_template._layouts.documentation',
+            'extends' => '_core._layouts.documentation',
             'filter' => fn($page) => $page->_meta->extension === 'md',
             'path' => function ($page) use ($lang) {
                 $relative = str_replace('\\', '/', $page->_meta->relativePath);

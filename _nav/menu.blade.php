@@ -12,4 +12,4 @@ foreach ($locale as $segment) {
 $page->configurator->setLocale($current);
 @endphp
 
-@include('_template._nav.menu-item')
+@include('_core._nav.menu-item')

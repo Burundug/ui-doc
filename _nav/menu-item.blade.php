@@ -40,7 +40,7 @@
 
 
             @if ($hasSub)
-                @include('_template._nav.menu', [
+                @include('_core._nav.menu', [
     'sub' => $item['pages'],
     'level' => $level + 1,
     'isSub' => true,

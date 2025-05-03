@@ -7,8 +7,8 @@
         <link rel="canonical" href="{{ $page->getUrl() }}">
         <meta name="description" content="{{ $page->description }}">
         <title>{{ $page->title }}</title>
-        <link rel="stylesheet" href="{{ mix('css/main.css', '/_template/assets/build') }}">
-        <script defer src="{{ mix('js/main.js', '/_template/assets/build') }}"></script>
+        <link rel="stylesheet" href="{{ mix('css/main.css', '/_core/assets/build') }}">
+        <script defer src="{{ mix('js/main.js', '/_core/assets/build') }}"></script>
     </head>
     <body class="text-gray-900 antialiased">
         @yield('body')
