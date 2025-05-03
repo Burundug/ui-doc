@@ -16,7 +16,7 @@
         ],
         'defaultLocale' => 'ru',
         'lang_path' => 'source/lang',
-        'collections' => require_once('source/_template/collections.php'),
+        'collections' => require_once('source/_core/collections.php'),
         'isActive' => function ($page, $path) {
             return Str::endsWith(trimPath($page->getPath()), trimPath($path));
         },
