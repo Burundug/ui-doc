@@ -5,8 +5,8 @@ use Illuminate\Support\Str;
 return [
     'baseUrl' => '',
     'production' => false,
-    'siteName' => 'Docs Starter Template',
-    'siteDescription' => 'Beautiful docs powered by Jigsaw',
+    'siteName' => 'Simai Documentation',
+    'siteDescription' => 'Simai framework documentation',
 
     // Algolia DocSearch credentials
     'docsearchApiKey' => env('DOCSEARCH_KEY'),
@@ -14,6 +14,7 @@ return [
 
     // navigation menu
     'navigation' => require_once('navigation.php'),
+    'docs' => base_path('source/docs'),
 
     // helpers
     'isActive' => function ($page, $path) {

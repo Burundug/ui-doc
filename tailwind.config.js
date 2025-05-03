@@ -1,11 +1,11 @@
 /** @type {import("tailwindcss").Config} */
 module.exports = {
   content: require('fast-glob').sync([
-      'source/**/*.html',
-      'source/**/*.md',
-      'source/**/*.js',
-      'source/**/*.php',
-      'source/**/*.vue',
+    'source/**/*.html',
+    'source/**/*.md',
+    'source/**/*.js',
+    'source/**/*.php',
+    'source/**/*.vue',
   ]),
   options: {
     whitelist: [
@@ -15,10 +15,17 @@ module.exports = {
     ],
   },
   theme: {
+    container: {
+      center: true,
+      padding: '1rem',
+      screens: {
+        'xxl': '1800px'
+      },
+    },
     extend: {
       fontFamily: {
         sans: [
-          'Nunito Sans'
+          'Inter sans-serif'
         ],
         mono: [
           'monospace',
